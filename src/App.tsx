@@ -1,11 +1,16 @@
 import React from 'react';
 import './App.css';
 
+import { Header } from './components/Header';
+import { Content } from './components/Content';
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    
+      <div className="container flex flex-col mr-auto ml-auto">
+        <Header />
+        <Content />
+      </div>
   );
 }
 
