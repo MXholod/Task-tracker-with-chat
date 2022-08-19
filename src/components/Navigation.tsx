@@ -6,10 +6,13 @@ export const Navigation:React.FunctionComponent = ()=>{
         <nav>
             <ul className='flex'>
                 <li className='pr-2'>
-                <NavLink to='/'>Main</NavLink>
+                    <NavLink to='/'>Main</NavLink>
+                </li>
+                <li className='pr-2'>
+                    <NavLink to='/tasks'>Tasks</NavLink>
                 </li>
                 <li>
-                <NavLink to='/tasks'>Tasks</NavLink>
+                    <NavLink to='/add-task'>Add task</NavLink>
                 </li>
             </ul>
         </nav>
