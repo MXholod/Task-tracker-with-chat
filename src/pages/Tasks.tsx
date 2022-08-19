@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ITask } from './../models/Task';
+import { Task } from './../components/Task';
 
 export const Tasks:React.FunctionComponent = ()=>{
     const [tasks, setTasks] = useState<ITask[]>([]);
@@ -17,11 +18,7 @@ export const Tasks:React.FunctionComponent = ()=>{
         <div className="font-medium">List of tasks:</div>
         { !tasks.length && <p className="text-lg text-fuchsia-600 text-center">Loading...</p> }
         { !!tasks.length && tasks.map((task)=>{
-            return (<div key={ task.id } className="flex border border-black p-2 mb-2">
-                <span className="px-2">User ID: { task.userId }</span>
-                <input type="checkbox" readOnly disabled checked={ task.completed } className="mr-2" />
-                <p>{ task.title }</p>
-            </div>)
+            return (<Task task={ task } key={ task.id } />)
         }) }
     </>)
 }
