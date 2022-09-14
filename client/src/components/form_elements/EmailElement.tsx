@@ -6,7 +6,7 @@ type EmaiElementProps = {
 
 const EmailElement:React.FunctionComponent<EmaiElementProps> = ({ emailValue })=>{
     const [email, setEmail] = useState<[string, boolean]>(['', false]);
-    console.log("Email");
+    
     const handleEmail = (e:React.ChangeEvent<HTMLInputElement>)=>{
         /*eslint-disable */
         const isValidEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
