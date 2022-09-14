@@ -2,12 +2,13 @@ import React, { useState, useEffect, memo } from 'react';
 
 type PasswordElementProps = {
     charLength: number;
-    passwordValue: (str:string)=>void
+    passwordValue: (str:string)=>void;
+    children?: React.ReactNode | string;
 }
 
-const PasswordElement:React.FunctionComponent<PasswordElementProps> = ({ charLength, passwordValue }: PasswordElementProps)=>{
+const PasswordElement:React.FunctionComponent<PasswordElementProps> = ({ charLength, passwordValue, children }: PasswordElementProps)=>{
     const [password, setPassword] = useState<[string, boolean]>(['', false]);
-    console.log("Password");
+    
     const handlePassword = (e:React.ChangeEvent<HTMLInputElement>)=>{
         if(e.target.value.length >= charLength){// Correct password length
             setPassword(pass =>{
@@ -34,7 +35,7 @@ const PasswordElement:React.FunctionComponent<PasswordElementProps> = ({ charLen
     return (<React.Fragment>
         <label className="mb-4"
             style={ password[1] ? { color: 'red'} : {} }
-        >Password
+        >{ children ? children : 'Password' }
             <input type="password" className="ml-2 px-2" value={ password[0] }
                 onChange={ handlePassword } />
         </label>
